@@ -2,8 +2,8 @@ import datetime
 import time
 
 from schedule import repeat, every, run_pending
-from mercado_bitcoin.ingestors import DaySummaryIngestor
-from mercado_bitcoin.writers import DataWriter
+from ingestors import DaySummaryIngestor
+from writers import DataWriter
 
 
 if __name__ == "__main__":
@@ -13,10 +13,13 @@ if __name__ == "__main__":
         default_start_date=datetime.date(2021, 6, 1)
     )
 
+    #trades_ingestor = TradesIngestor()
+
 
     @repeat(every(1).seconds)
     def job():
         day_summary_ingestor.ingest()
+        #trades_ingestor.ingest()
 
 
     while True:

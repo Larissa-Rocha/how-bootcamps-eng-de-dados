@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 aulas_ao_vivo/credentials.py
+day-summary
