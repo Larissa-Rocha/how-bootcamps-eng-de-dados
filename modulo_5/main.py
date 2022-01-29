@@ -3,10 +3,10 @@ from selenium import webdriver
 import sys
 import time
 #%%
-cep =  sys.argv[1]
+cep =  sys.argv[1] # pega o parâmetro que é colocado na hora de rodar o script
 
 if cep:
-    driver  = webdriver.Chrome('./src/chromedriver')
+    driver  = webdriver.Chrome('./src/chromedriver') 
     time.sleep(10)
     #%%
     # Acesso ao site da How
@@ -14,6 +14,7 @@ if cep:
     # driver.find_element_by_xpath('//*[@id="PopupSignupForm_0"]/div[2]/div[1]').click()
     # driver.find_element_by_xpath('/html/body/section[4]/div/div/div[2]/a').click()
     # %%
+    # Acesso ao site dos correios:
     driver.get('https://buscacepinter.correios.com.br/app/endereco/index.php?t')
     elem_cep = driver.find_element_by_name('endereco')
     #%%
@@ -24,7 +25,7 @@ if cep:
     elem_cmb = driver.find_element_by_name('tipoCEP')
     elem_cmb.click()
     driver.find_element_by_xpath(
-        '//*[@id="formulario"]/div[2]/div/div[2]/select/option[6]').click()
+        '//*[@id="formulario"]/div[2]/div/div[2]/select/option[6]').click() #seleciona a opção 'todos' no menu
     # %%
     driver.find_element_by_id('btn_pesquisar').click()
     # %%
